@@ -28,13 +28,20 @@ import org.bukkit.entity.Player;
 import fr.cabricraft.batofb.util.ReflectionUtils.PackageType;
 
 /**
- * A class to send titles or subtitles to players :D
+ * <b>TitleSender API</b><br/>
+ * <p>This API was created by @gpotter2 !</p>
+ * <p>This api is using the Reflection Util class, Download it there:<br/>
+ * https://github.com/DarkBlade12/ParticleEffect/blob/master/src/com/darkblade12/particleeffect/ReflectionUtils.java</p>
+ * <p>
+ * You are welcome to use it, modify it and redistribute it under the following conditions:
  * <ul>
  * <li>Don't claim this class as your own
  * <li>Don't remove this disclaimer
  * </ul>
+ * </p>
  * 
  * @author gpotter2
+ * @version 1.0
  *
  */
 public class TitleSender {
