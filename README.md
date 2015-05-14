@@ -1,5 +1,5 @@
 # TitleSender
-A easy api to send titles and subtitles from bukkit/spigot with reflection !
+An easy library to send titles and subtitles from bukkit/spigot with reflection !
 
 <b>Installation:</b>
 
