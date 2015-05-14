@@ -43,7 +43,6 @@ List<JSONPart> list = new LinkedList<JSONPart>();
   list.add(new JSONPart("Hey ", ChatColor.GREEN));
   list.add(new JSONPart("gpotter2", ChatColor.BLUE));
   list.add(new JSONPart(" !", ChatColor.DARK_AQUA));
- 
   List<JSONPart> list2 = new LinkedList<JSONPart>();
   list2.add(new JSONPart("How ", ChatColor.GREEN));
   list2.add(new JSONPart("are", ChatColor.BLUE));
