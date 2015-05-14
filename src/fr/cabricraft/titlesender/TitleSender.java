@@ -108,13 +108,10 @@ public class TitleSender {
 				if(!first_done){
 					result = json_part.__INVALID__getJSONPartExtra();
 					first_done = true;
-					System.out.println("first_done");
 				} else {
 					if(list.size() >= (i+2)){
 						result = result + json_part.__INVALID__getJSONPartExtra();
-						System.out.println("2");
 					} else {
-						System.out.println("3");
 						result = result + json_part.getJSONPart();
 						for(int end = 0; end < i; end++){
 							result = result + "]}";
