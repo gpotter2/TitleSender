@@ -22,7 +22,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import fr.cabricraft.batofb.util.ReflectionUtils.PackageType;
@@ -41,10 +43,91 @@ import fr.cabricraft.batofb.util.ReflectionUtils.PackageType;
  * </p>
  * 
  * @author gpotter2
- * @version 1.0
+ * @version 1.1
  *
  */
 public class TitleSender {
+	/**
+	 * A util to create JSON messages.
+	 * 
+	 * @author gpotter2
+	 *
+	 */
+	public static class JSONPart {
+		ChatColor color;
+		String string;
+		/**
+		 * A util to create a JSON part message, with a text and color.
+		 * 
+		 * @author gpotter2
+		 *
+		 */
+		public JSONPart(String string, ChatColor color){
+			if(string == null){
+				new NullPointerException("The string cannot be null !").printStackTrace();
+				return;
+			}
+			this.string = string.replaceAll("'", "").replaceAll('"'+"", "");
+			if(color != null){
+				this.color = color;
+			} else {
+				color = ChatColor.WHITE;
+			}
+		}
+		public String getString(){
+			return string;
+		}
+		public ChatColor getColor(){
+			return color;
+		}
+		public String getJSONPart(){
+			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "'}";
+		}
+		public String __INVALID__getJSONPartExtra(){
+			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "',extra:[";
+		}
+		public boolean isValid(){
+			return (string != null && color != null);
+		}
+	}
+	
+	public static String JSONString(List<JSONPart> list){
+		if(list == null){
+			new NullPointerException("The list cannot be null !").printStackTrace();
+			return null;
+		}
+		if(list.size() < 1){
+			new IndexOutOfBoundsException("The must contains at least 1 element !").printStackTrace();
+			return null;
+		}
+		if(list.size() > 1){
+			String result = "";
+			boolean first_done = false;
+			for(int i = 0; i < list.size(); i++){
+				JSONPart json_part = list.get(i);
+				if(!first_done){
+					result = json_part.__INVALID__getJSONPartExtra();
+					first_done = true;
+					System.out.println("first_done");
+				} else {
+					if(list.size() >= (i+2)){
+						result = result + json_part.__INVALID__getJSONPartExtra();
+						System.out.println("2");
+					} else {
+						System.out.println("3");
+						result = result + json_part.getJSONPart();
+						for(int end = 0; end < i; end++){
+							result = result + "]}";
+						}
+						return result;
+					}
+				}
+			}
+		} else {
+			return list.get(0).getJSONPart();
+		}
+		return null;
+	}
 	
 	/**
 	 * Send a subtitle to a player during a specified time.
