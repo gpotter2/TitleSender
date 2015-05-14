@@ -11,8 +11,11 @@ Just add the 2 classes (TitleSender.java & ReflectionUtils.java) to your plugin.
 <b>USAGE:</b>
 
 You have 3 options to use it:
+
 1) Send a title to a player
+
 2) Send a subtitle to a player
+
 3) Send a subtitle and a title to a player
 
 About the JSONMessages, if you don't know how to use it, you may create them with the JSONString() function.
