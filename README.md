@@ -39,12 +39,12 @@ The times are in ticks (1sec = 20ticks) !!!
 
 <b>Exemple to send Title and subtitle with JSONString:</>
 
-List<JSONPart> list = new LinkedList<JSONPart>();
-  list.add(new JSONPart("Hey ", ChatColor.GREEN));
-  list.add(new JSONPart("gpotter2", ChatColor.BLUE));
-  list.add(new JSONPart(" !", ChatColor.DARK_AQUA));
-  List<JSONPart> list2 = new LinkedList<JSONPart>();
-  list2.add(new JSONPart("How ", ChatColor.GREEN));
-  list2.add(new JSONPart("are", ChatColor.BLUE));
-  list2.add(new JSONPart("you !", ChatColor.DARK_AQUA));
-  TitleSender.sendTitleAndSubTitle(player, TitleSender.JSONString(list), TitleSender.JSONString(list2), 10, 60, 10);
+	List<JSONPart> list = new LinkedList<JSONPart>();
+	list.add(new JSONPart("Hey ", ChatColor.GREEN));
+	list.add(new JSONPart("gpotter2", ChatColor.BLUE));
+	list.add(new JSONPart(" !", ChatColor.DARK_AQUA));
+	List<JSONPart> list2 = new LinkedList<JSONPart>();
+	list2.add(new JSONPart("How ", ChatColor.GREEN));
+	list2.add(new JSONPart("are", ChatColor.BLUE));
+	list2.add(new JSONPart("you !", ChatColor.DARK_AQUA));
+	TitleSender.sendTitleAndSubTitle(player, TitleSender.JSONString(list), TitleSender.JSONString(list2), 10, 60, 10);
