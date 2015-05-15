@@ -43,7 +43,7 @@ import fr.cabricraft.batofb.util.ReflectionUtils.PackageType;
  * </p>
  * 
  * @author gpotter2
- * @version 1.1
+ * @version 1.2
  *
  */
 public class TitleSender {
