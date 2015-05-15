@@ -47,6 +47,30 @@ import fr.cabricraft.batofb.util.ReflectionUtils.PackageType;
  *
  */
 public class TitleSender {
+	
+	public static enum JSONParam {
+		/**
+		 * Controls whether the text is bold or not. Default false
+		 */
+		BOLD,
+		/**
+		 * Controls whether the text is italic or not. Default false
+		 */
+		ITALIC,
+		/**
+		 * Controls whether the text is underlined or not. Default false
+		 */
+		UNDERLINED,
+		/**
+		 * Controls whether the text is striked out or not. Default false
+		 */
+		STRIKETHROUGH,
+		/**
+		 * Controls whether the text is randomised constantly or not. Default false
+		 */
+		OBFUSCATED;
+	}
+	
 	/**
 	 * A util to create JSON messages.
 	 * 
@@ -56,6 +80,11 @@ public class TitleSender {
 	public static class JSONPart {
 		ChatColor color;
 		String string;
+		boolean bold = false;
+		boolean italic = false;
+		boolean underlined = false;
+		boolean strikethrough = false;
+		boolean obfuscated = false;
 		/**
 		 * A util to create a JSON part message, with a text and color.
 		 * 
@@ -81,13 +110,31 @@ public class TitleSender {
 			return color;
 		}
 		public String getJSONPart(){
-			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "'}";
+			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "',bold:" + bold + ",italic:" + italic + ",underlined:" + underlined
+					+ ",strikethrough:" + strikethrough + ",obfuscated:" + obfuscated+ "}";
 		}
 		public String __INVALID__getJSONPartExtra(){
-			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "',extra:[";
+			return "{text:'" + string + "',color:'" + color.name().toLowerCase() + "',bold:" + bold + ",italic:" + italic + ",underlined:" + underlined
+					+ ",strikethrough:" + strikethrough + ",obfuscated:" + obfuscated+ ",extra:[";
 		}
 		public boolean isValid(){
 			return (string != null && color != null);
+		}
+		public JSONPart setParam(JSONParam... params){
+			for(JSONParam param : params){
+				if(param == JSONParam.BOLD){
+					bold = true;
+				} else if(param == JSONParam.ITALIC){
+					italic = true;
+				} else if(param == JSONParam.OBFUSCATED){
+					obfuscated = true;
+				} else if(param == JSONParam.STRIKETHROUGH){
+					strikethrough = true;
+				} else if(param == JSONParam.UNDERLINED){
+					underlined = true;
+				}
+			}
+			return this;
 		}
 	}
 	
